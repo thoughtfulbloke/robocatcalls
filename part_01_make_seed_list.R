@@ -40,5 +40,6 @@ seed_details <- lapply(seed_accounts, getUser)
 ##getting the followers is going to take a while, because rate limits
 followerdata <- lapply(seed_details, function(x){x$getFollowers(retryOnRateLimit=180)})
 
-
+#The follwerdata list is a little overf 400 MB as of 26 Aug 2017
+save(seed_details, followerdata, file="pols_and_followers.RData")
 
